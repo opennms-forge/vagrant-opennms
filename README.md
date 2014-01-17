@@ -35,7 +35,7 @@ Based on this machine a setup of OpenNMS will be executed through Chef recipes. 
 **recipe:opennms**:
 - Installing OpenJDK 7
 - Install a preconfigured opennms-datasources.xml with authentication
-- Install preconfigured opennms.conf with TIME_OUT
+- Install preconfigured opennms.conf
 - Configure Java environment for OpenNMS with `runjava -s`
 - Install OpenNMS database schema and libraries with `install -dis`
 - Start opennms and add to runlevel for automatic start on boot

@@ -28,8 +28,10 @@ Based on this machine a setup of OpenNMS will be executed through Chef recipes. 
 
 **recipe:postgresql::server**:
 - Install the PostgreSQL server
+
 **recipe:yumrepo::opennms-common and yumrepo::opennms-rhel6**:
 - Install the OpenNMS YUM repository for OpenNMS
+
 **recipe:opennms**:
 - Installing OpenJDK 7
 - Install a preconfigured opennms-datasources.xml with authentication

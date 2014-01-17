@@ -46,14 +46,14 @@ It is possible to change some parameter through the Vagrantfile.
 - `opennms.release`: Install OpenNMS as current stable release. You can change to `testing`,`snapshot`, `unstable`, `bleeding` or branches/{branchname}. With branches you can install feature branches which can be find in http://yum.opennms.org/branches
 - `opennms.jpda`: allows to open the Java Remote debugging port to the JVM. You can connect with your IDE for example debugging issues
 
-      chef.json = {
-        :postgresql => {
-          :password => {
-            :postgres => "opennms_pg"
-          }
-        },
-        :opennms => {
-          :release => "stable", #stable, testing, unstable, snapshot, bleeding
-          :jpda => false
-        }
-      }
+            chef.json = {
+              :postgresql => {
+                :password => {
+                  :postgres => "opennms_pg"
+                }
+              },
+              :opennms => {
+                :release => "stable", #stable, testing, unstable, snapshot, bleeding
+                :jpda => false
+              }
+            }

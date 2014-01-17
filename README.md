@@ -11,6 +11,7 @@ Vagrant provides a good environment for testing, debugging OpenNMS. It can also 
 By default the virtual machine uses a no-worry-NAT network interface. To give you access to the virtual machine there is some preconfigured port forwarding:
 - TCP guest 8980 to your host 8980 for the OpenNMS WebUI
 - TCP guest 8001 to your host 8001 JPDA debugging support
+- TCP guest 22 to your host 2222 for SSH access you can also just run `vagrant ssh`
 
 Usage
 -----
@@ -19,6 +20,7 @@ Usage
 3. Change into vagrant-opennms
 4. Run `vagrant up` to start the virtual machine
 5. Connect in your browser to http://localhost:8980
+6. Username is `vagrant` with password `vagrant` you can get root access with `sudo -i`
 
 Under the hood
 --------------

@@ -130,6 +130,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # vb.gui = true
   end
 
+  # This installs chef into the created box
+  config.vm.provision :shell do |shell|
+    shell.inline = "curl -L https://www.opscode.com/chef/install.sh | bash"
+  end
+
   config.vm.provision :chef_solo do |chef|
     chef.json = {
       :postgresql => {

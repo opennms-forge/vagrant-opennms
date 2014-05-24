@@ -1,0 +1,54 @@
+---
+driver:
+  name: vagrant
+  customize:
+    cpus: 2
+    memory: 2048
+  network:
+    - - forwarded_port
+      - guest: 8980
+        host: 8980
+        auto_correct: true
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-14.04
+    attributes:
+      opennms:
+        home: /usr/share/opennms
+
+  - name: ubuntu-12.04
+    attributes:
+      opennms:
+        home: /usr/share/opennms
+
+  - name: centos-6.5
+    attributes:
+      opennms:
+        home: /opt/opennms
+
+suites:
+  - name: default
+    run_list:
+      - recipe[java]
+      - recipe[postgresql::server]
+      - recipe[opennms::default]
+    attributes:
+      opennms:
+        release: stable
+
+  - name: remote-poller
+    run_list:
+      - recipe[java]
+      - recipe[opennms::remote-poller]
+    attributes:
+      java:
+        install_flavor: openjdk
+        jdk_version: 7
+      opennms:
+        release: stable
+        home: /usr/share/opennms
+        location: Germany
+        baseurl: http://192.168.0.1:8980/opennms-remoting

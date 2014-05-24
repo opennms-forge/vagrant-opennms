@@ -1,26 +1,16 @@
-name              "opennms"
-maintainer        "Mike Huot"
-maintainer_email  "mhuot@opennms.org"
-license           "GPL v3"
-description       "Installs OpenNMS and configures Postgres for use with OpenNMS"
-long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           "0.1"
+name             'opennms'
+maintainer       'OpenNMS Community'
+maintainer_email 'ronny@opennms.org'
+license          'GPLv3+'
+description      'Installs/Configures opennms'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version          '0.2.4'
 
-recipe "opennms", "Installs OpenNMS"
+recipe 'opennms', 'Installs open source enterprise network management platform OpenNMS'
 
-%w{
-    debian
-    ubuntu
-    centos
-    redhat
-    scientific
-    fedora
-    amazon
-    arch
-    oracle
-}.each do |os|
+depends 'java'
+depends 'postgresql'
+
+%w(ubuntu debian redhat centos fedora).each do |os|
   supports os
 end
-
-depends "apt"
-depends "postgresql"

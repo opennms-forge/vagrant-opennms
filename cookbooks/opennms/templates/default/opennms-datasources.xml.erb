@@ -25,14 +25,15 @@
   <jdbc-data-source name="opennms" 
                     database-name="opennms" 
                     class-name="org.postgresql.Driver" 
-                    url="jdbc:postgresql://localhost:5432/opennms"
-                    user-name="opennms"
-                    password="opennms" />
+                    url="jdbc:postgresql://<%= node['opennms']['dbhost'] %>:<%= node['opennms']['dbport'] %>/<%= node['opennms']['dbname'] %>"
+                    user-name="<%= node['opennms']['dbuser'] %>"
+                    password="<%= node['opennms']['dbpass'] %>" />
 
   <jdbc-data-source name="opennms-admin" 
                     database-name="template1" 
                     class-name="org.postgresql.Driver" 
-                    url="jdbc:postgresql://localhost:5432/template1"
+                    url="jdbc:postgresql://<%= node['opennms']['dbhost'] %>:<%= node['opennms']['dbport'] %>/template1"
                     user-name="postgres"
-                    password="<%= @postgres_pass %>" />
+                    password="<%= node['postgresql']['password']['postgres'] %>" />
 </datasource-configuration>
+

@@ -1,0 +1,39 @@
+E, [2014-05-10T16:56:14.857716 #71446] ERROR -- Kitchen: ------Exception-------
+E, [2014-05-10T16:56:14.857817 #71446] ERROR -- Kitchen: Class: Kitchen::ClientError
+E, [2014-05-10T16:56:14.857843 #71446] ERROR -- Kitchen: Message: Could not load the 'vagrant' driver from the load path. Please ensure that your driver is installed as a gem or included in your Gemfile if using Bundler.
+E, [2014-05-10T16:56:14.857865 #71446] ERROR -- Kitchen: ---Nested Exception---
+E, [2014-05-10T16:56:14.857893 #71446] ERROR -- Kitchen: Class: LoadError
+E, [2014-05-10T16:56:14.857920 #71446] ERROR -- Kitchen: Message: cannot load such file -- kitchen/driver/vagrant
+E, [2014-05-10T16:56:14.857943 #71446] ERROR -- Kitchen: ------Backtrace-------
+E, [2014-05-10T16:56:14.857962 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/driver.rb:50:in `rescue in for_plugin'
+E, [2014-05-10T16:56:14.857981 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/driver.rb:40:in `for_plugin'
+E, [2014-05-10T16:56:14.857999 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/config.rb:124:in `new_driver'
+E, [2014-05-10T16:56:14.858018 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/config.rb:130:in `new_instance'
+E, [2014-05-10T16:56:14.858037 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/config.rb:73:in `block in build_instances'
+E, [2014-05-10T16:56:14.858056 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/config.rb:72:in `map'
+E, [2014-05-10T16:56:14.858074 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/config.rb:72:in `with_index'
+E, [2014-05-10T16:56:14.858098 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/config.rb:72:in `build_instances'
+E, [2014-05-10T16:56:14.858117 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/config.rb:52:in `instances'
+E, [2014-05-10T16:56:14.858136 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/command.rb:64:in `get_filtered_instances'
+E, [2014-05-10T16:56:14.858155 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/command.rb:85:in `parse_subcommand'
+E, [2014-05-10T16:56:14.858174 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/command/list.rb:31:in `call'
+E, [2014-05-10T16:56:14.858192 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/cli.rb:47:in `perform'
+E, [2014-05-10T16:56:14.858211 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/cli.rb:81:in `list'
+E, [2014-05-10T16:56:14.858230 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/thor-0.19.1/lib/thor/command.rb:27:in `run'
+E, [2014-05-10T16:56:14.858249 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/thor-0.19.1/lib/thor/invocation.rb:126:in `invoke_command'
+E, [2014-05-10T16:56:14.858267 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/cli.rb:233:in `invoke_task'
+E, [2014-05-10T16:56:14.858286 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/thor-0.19.1/lib/thor.rb:359:in `dispatch'
+E, [2014-05-10T16:56:14.858308 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/lib/ruby/gems/2.1.0/gems/thor-0.19.1/lib/thor/base.rb:440:in `start'
+E, [2014-05-10T16:56:14.858327 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/bin/kitchen:13:in `block in <top (required)>'
+E, [2014-05-10T16:56:14.858346 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/lib/kitchen/errors.rb:81:in `with_friendly_errors'
+E, [2014-05-10T16:56:14.858365 #71446] ERROR -- Kitchen: /opt/chefdk/embedded/apps/test-kitchen/bin/kitchen:13:in `<top (required)>'
+E, [2014-05-10T16:56:14.858384 #71446] ERROR -- Kitchen: /usr/bin/kitchen:10:in `load'
+E, [2014-05-10T16:56:14.858402 #71446] ERROR -- Kitchen: /usr/bin/kitchen:10:in `<main>'
+E, [2014-05-10T16:56:14.858420 #71446] ERROR -- Kitchen: ----------------------
+I, [2014-05-10T16:56:35.398861 #71601]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-05-10T16:56:35.989942 #71601]  INFO -- Kitchen: -----> Creating <default-ubuntu-1204>...
+I, [2014-05-10T16:57:25.634874 #71601]  INFO -- Kitchen: -----> Converging <default-ubuntu-1204>...
+E, [2014-05-10T17:01:46.731621 #71601] ERROR -- Kitchen: Converge failed on instance <default-ubuntu-1204>.
+I, [2014-05-13T17:12:18.936453 #4353]  INFO -- Kitchen: -----> Starting Kitchen (v1.2.1)
+I, [2014-05-13T17:12:19.544725 #4353]  INFO -- Kitchen: -----> Converging <default-ubuntu-1204>...
+E, [2014-05-13T17:12:30.950944 #4353] ERROR -- Kitchen: Converge failed on instance <default-ubuntu-1204>.

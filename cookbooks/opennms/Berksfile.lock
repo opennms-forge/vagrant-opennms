@@ -1,0 +1,17 @@
+DEPENDENCIES
+  opennms
+    path: .
+    metadata: true
+
+GRAPH
+  apt (2.4.0)
+  build-essential (2.0.2)
+  java (1.22.0)
+  opennms (0.2.4)
+    java (>= 0.0.0)
+    postgresql (>= 0.0.0)
+  openssl (1.1.0)
+  postgresql (3.4.0)
+    apt (>= 1.9.0)
+    build-essential (>= 0.0.0)
+    openssl (>= 0.0.0)

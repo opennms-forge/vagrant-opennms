@@ -10,12 +10,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "CentOS-6-x86_64-minimal"
+  config.vm.box = "centos-6.5"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   # config.vm.box_url = "http://domain.com/path/to/above.box"
-  config.vm.box_url = "http://mirror.informatik.hs-fulda.de/pub/vagrant/CentOS-6-x86_64-minimal.box"
+  config.vm.box_url = "https://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.5_chef-provisionerless.box"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -132,7 +132,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # This installs chef into the created box
   config.vm.provision :shell do |shell|
-    shell.inline = "curl -L https://www.opscode.com/chef/install.sh | bash"
+    shell.inline = "if [ ! -f $(which chef-client) ]; then curl -L https://www.opscode.com/chef/install.sh | bash; fi"
   end
 
   config.vm.provision :chef_solo do |chef|
@@ -149,9 +149,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
 
     chef.cookbooks_path = "cookbooks"
-    chef.add_recipe "postgresql::server"
-    chef.add_recipe "yumrepo::opennms-common"
-    chef.add_recipe "yumrepo::opennms-rhel6"
     chef.add_recipe "opennms"
   end
 end

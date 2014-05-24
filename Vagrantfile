@@ -132,7 +132,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # This installs chef into the created box
   config.vm.provision :shell do |shell|
-    shell.inline = "if [ ! -f $(which chef-client) ]; then curl -L https://www.opscode.com/chef/install.sh | bash; fi"
+    shell.inline = "which chef-client || curl -L https://www.opscode.com/chef/install.sh | bash"
   end
 
   config.vm.provision :chef_solo do |chef|

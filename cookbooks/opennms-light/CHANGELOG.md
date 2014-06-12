@@ -15,6 +15,12 @@ This file is used to list changes made in each version of the opennms cookbook.
 -----
 - [Ronny Trommer] - Introducing changelog
 
+0.2.5
+-----
+- [Ronny Trommer] - Changed receipe dependency from postgresql to postgresql::server
+- [Ronny Trommer] - Renamed to opennms-light, aiming for minimal config and working with stable,testing and unstable
+
+
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
 

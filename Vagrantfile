@@ -149,6 +149,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
 
     chef.cookbooks_path = "cookbooks"
-    chef.add_recipe "opennms"
+    chef.add_recipe "opennms-light"
   end
 end

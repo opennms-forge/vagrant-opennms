@@ -132,7 +132,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # This installs chef into the created box
   config.vm.provision :shell do |shell|
-    shell.inline = "which chef-client || curl -L https://www.opscode.com/chef/install.sh | bash"
+    shell.inline = "which chef-client || wget -qO- https://www.opscode.com/chef/install.sh | bash"
   end
 
   config.vm.provision :chef_solo do |chef|
@@ -143,7 +143,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         }
       },
       :opennms => {
-        :release => "snapshot", #stable, testing, unstable, snapshot, bleeding
+        :release => "stable", #stable, testing, unstable, snapshot, bleeding
         :jpda => false
       }
     }

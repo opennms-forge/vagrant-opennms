@@ -14,7 +14,7 @@ case node['platform_family']
 when "rhel"
   home_dir = "/opt/opennms"
   execute "Install OpenNMS yum repository" do
-    command "rpm -Uvh http://yum.opennms.org/repofiles/opennms-repo-#{node['opennms']['release']}-rhel6.noarch.rpm"
+    command "rpm -Uvh http://yum.opennms.eu/repofiles/opennms-repo-#{node['opennms']['release']}-rhel6.noarch.rpm"
     not_if "yum list installed | grep opennms-repo-#{node['opennms']['release']}"
   end
   execute "Update yum repostory" do
@@ -31,7 +31,7 @@ when "debian"
   end
 
   remote_file "#{Chef::Config['file_cache_path']}/OPENNMS-GPG-KEY" do
-    source "http://debian.opennms.org/OPENNMS-GPG-KEY"
+    source "http://debian.opennms.eu/OPENNMS-GPG-KEY"
   end
   
   execute "Install OpenNMS apt GPG-key" do

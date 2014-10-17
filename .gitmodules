@@ -13,3 +13,6 @@
 [submodule "cookbooks/java"]
 	path = cookbooks/java
 	url = https://github.com/agileorbit-cookbooks/java.git
+[submodule "cookbooks/openssl"]
+	path = cookbooks/openssl
+	url = https://github.com/opscode-cookbooks/openssl.git

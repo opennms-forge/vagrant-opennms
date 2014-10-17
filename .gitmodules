@@ -1,3 +1,6 @@
 [submodule "cookbooks/opennms-light"]
 	path = cookbooks/opennms-light
 	url = https://github.com/opennms-forge/chef-opennms-light.git
+[submodule "cookbooks/apt"]
+	path = cookbooks/apt
+	url = https://github.com/opscode-cookbooks/apt.git

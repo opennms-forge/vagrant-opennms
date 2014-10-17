@@ -60,7 +60,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       },
       :opennms => {
         :release => "snapshot", #stable, testing, unstable, snapshot, bleeding
-        :jpda => false
+        :jpda => false,
+        :repository => {
+	  :yum => "yum.opennms.org",
+          :apt => "debian.opennms.org"
+	}
       }
     }
 

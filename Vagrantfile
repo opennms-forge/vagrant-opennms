@@ -11,16 +11,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   ##############
 
   # Run with CentOS 7.0
-  config.vm.box = "centos-7.0"
+  # config.vm.box = "centos-7.0"
 
   # Run with Ubuntu 14.04
-  # config.vm.box = "ubuntu-14.04"
+  config.vm.box = "ubuntu-14.04"
 
   # Download URL CentOS 7.0
-  config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-7.0_chef-provisionerless.box"
+  # config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-7.0_chef-provisionerless.box"
 
   # Download URL Ubuntu 14.04
-  # config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box"
+  config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box"
 
   ###################
   ## Network configuration
@@ -59,11 +59,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         }
       },
       :opennms => {
-        :release => "snapshot", #stable, testing, unstable, snapshot, bleeding
+        :release => "stable", #stable, testing, unstable, snapshot, bleeding
         :jpda => false,
         :repository => {
-	  :yum => "yum.opennms.eu",
-          :apt => "debian.opennms.eu"
+	  :yum => "yum.opennms.org",
+          :apt => "debian.opennms.org"
 	}
       }
     }

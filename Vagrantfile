@@ -64,7 +64,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :repository => {
 	  :yum => "yum.opennms.eu",
           :apt => "debian.opennms.eu"
-	}
+        }
       }
     }
 

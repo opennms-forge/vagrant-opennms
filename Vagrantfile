@@ -61,13 +61,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       :opennms => {
         :release => "stable", #stable, testing, unstable, snapshot, bleeding
         :jpda => false,
+        :java_heap_space => "1024",
         :repository => {
-          :yum => "yum.opennms.org",
-          :apt => "debian.opennms.org"
-        }
+          :yum => "yum.opennms.eu",
+          :apt => "debian.opennms.eu"
+        },
+        :library => {
+          :jrrd => "/usr/lib/jni/libjrrd.so"
+        },
+        :rrd => {
+          :strategyClass => "org.opennms.netmgt.rrd.rrdtool.JniRrdStrategy",
+          :interfaceJar => "/usr/share/java/jrrd.jar"
+        },
+        :storeByForeignSource => "true"
       }
     }
-
     chef.cookbooks_path = "cookbooks"
     chef.add_recipe "opennms-light"
   end

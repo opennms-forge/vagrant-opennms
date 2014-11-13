@@ -49,9 +49,9 @@ It is possible to change some parameter through the Vagrantfile.
 - `postgresql.password.postgres`: initialize the password by default to `opennms_pg`. If you change the password, the opennms-datasources.xml will also be changed
 - `opennms.release`: Install OpenNMS as current stable release. You can change to `testing`,`snapshot`, `unstable`, `bleeding` or branches/{branchname}. With branches you can install feature branches which can be find in http://yum.opennms.org/branches
 - `opennms.jpda`: allows to open the Java Remote debugging port to the JVM. You can connect with your IDE for example debugging issues
-- The following example configures Oracle JDK 7 instead of OpenJDK, uses the european mirror for the OpenNMS repository and switches from JRobin to RRDtool. The RRDs are stored in `$OPENNMS_HOME/share/rrd/snmp/fs/foreignid`.
 
-    
+The following example configures Oracle JDK 7 instead of OpenJDK, uses the european mirror for the OpenNMS repository and switches from JRobin to RRDtool. The RRDs are stored in `$OPENNMS_HOME/share/rrd/snmp/fs/foreignid`.
+
     chef.json = {
       :"java" => {
         :"install_flavor" => "oracle",

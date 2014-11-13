@@ -18,9 +18,10 @@ Usage
 1. Install VirtualBox and Vagrant on your computer
 2. Checkout this repository with `git clone https://github.com/opennms-forge/vagrant-opennms.git`
 3. Change into vagrant-opennms
-4. Run `vagrant up` to start the virtual machine
-5. Connect in your browser to http://localhost:8980
-6. Username is `vagrant` with password `vagrant` you can get root access with `sudo -i`
+4. Update cookbook dependencies with `git submodule init` and then `git submodule update --remote`
+5. Run `vagrant up` to start the virtual machine
+6. Connect in your browser to http://localhost:8980
+7. Username is `vagrant` with password `vagrant` you can get root access with `sudo -i`
 
 Under the hood
 --------------

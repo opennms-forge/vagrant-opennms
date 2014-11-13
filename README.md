@@ -51,7 +51,7 @@ It is possible to change some parameter through the Vagrantfile.
 - `opennms.jpda`: allows to open the Java Remote debugging port to the JVM. You can connect with your IDE for example debugging issues
 - The following example configures Oracle JDK 7 instead of OpenJDK, uses the european mirror for the OpenNMS repository and switches from JRobin to RRDtool. The RRDs are stored in `$OPENNMS_HOME/share/rrd/snmp/fs/foreignid`.
 
-
+    
     chef.json = {
       :"java" => {
         :"install_flavor" => "oracle",

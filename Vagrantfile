@@ -53,27 +53,34 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
-      :postgresql => {
-        :password => {
-          :postgres => "opennms_pg"
+      :"java" => {
+        :"install_flavor" => "openjdk",
+        :"jdk_version" => "7",
+        :"oracle" => {
+          "accept_oracle_download_terms" => false
         }
       },
-      :opennms => {
-        :release => "stable", #stable, testing, unstable, snapshot, bleeding
-        :jpda => false,
-        :java_heap_space => "1024",
-        :repository => {
-          :yum => "yum.opennms.eu",
-          :apt => "debian.opennms.eu"
+      :"postgresql" => {
+        :"password" => {
+          :"postgres" => "opennms_pg"
+        }
+      },
+      :"opennms" => {
+        :"release" => "stable", #stable, testing, unstable, snapshot, bleeding
+        :"jpda" => "false",
+        :"java_heap_space" => "1024",
+        :"repository" => {
+          :"yum" => "yum.opennms.org",
+          :"apt" => "debian.opennms.org"
         },
-        :library => {
-          :jrrd => "/usr/lib/jni/libjrrd.so"
+        :"library" => {
+          :"jrrd" => "/usr/lib/jni/libjrrd.so"
         },
-        :rrd => {
-          :strategyClass => "org.opennms.netmgt.rrd.rrdtool.JniRrdStrategy",
-          :interfaceJar => "/usr/share/java/jrrd.jar"
+        :"rrd" => {
+          :"strategyClass" => "org.opennms.netmgt.rrd.rrdtool.JniRrdStrategy",
+          :"interfaceJar" => "/usr/share/java/jrrd.jar"
         },
-        :storeByForeignSource => "true"
+        :"storeByForeignSource" => "true"
       }
     }
     chef.cookbooks_path = "cookbooks"

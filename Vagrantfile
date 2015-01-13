@@ -81,9 +81,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           :"interfaceJar" => "/usr/share/java/jrrd.jar"
         },
         :"storeByForeignSource" => "true"
-      },
-      :"ubuntu" => {
-        :"archive_url" => "http://mirror.informatik.hs-fulda.de/ubuntu"
       }
     }
     chef.cookbooks_path = "cookbooks"

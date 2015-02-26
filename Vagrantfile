@@ -68,6 +68,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       :"opennms" => {
         :"release" => "stable", #stable, testing, unstable, snapshot, bleeding
         :"jpda" => "false",
+        :"home" => "/usr/share/opennms",
         :"java_heap_space" => "1024",
         :"repository" => {
           :"yum" => "yum.opennms.org",
@@ -80,7 +81,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           :"strategyClass" => "org.opennms.netmgt.rrd.rrdtool.JniRrdStrategy",
           :"interfaceJar" => "/usr/share/java/jrrd.jar"
         },
-        :"storeByForeignSource" => "true"
+        :"storeByGroup" => "false",
+        :"storeByForeignSource" => "false"
       }
     }
     chef.cookbooks_path = "cookbooks"

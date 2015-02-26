@@ -1,8 +1,8 @@
 vagrant-opennms
 ===============
 Vagrant provides a good environment for testing, debugging OpenNMS. It can also provide you an environment to migrate your configuration to newer versions or test new functionalities from feature branches and future versions. The Vagrant box of OpenNMS requires the following:
-- VirtualBox 4.2+ http://www.virtualbox.org
-- Vagrant 1.5+ http://www.vagrantup.com
+- VirtualBox 4.3+ http://www.virtualbox.org
+- Vagrant 1.7+ http://www.vagrantup.com
 - Git http://www.git-scm.com
 - *NIX based operating system
 
@@ -49,13 +49,17 @@ It is possible to change some parameter through the Vagrantfile.
 - `postgresql.password.postgres`: initialize the password by default to `opennms_pg`. If you change the password, the opennms-datasources.xml will also be changed
 - `opennms.release`: Install OpenNMS as current stable release. You can change to `testing`,`snapshot`, `unstable`, `bleeding` or branches/{branchname}. With branches you can install feature branches which can be find in http://yum.opennms.org/branches
 - `opennms.jpda`: allows to open the Java Remote debugging port to the JVM. You can connect with your IDE for example debugging issues
+- `opennms.home` has to be set for Ubuntu to `/usr/share/opennms` and for CentOS to `/opt/opennms`
 
-The following example configures Oracle JDK 7 instead of OpenJDK, uses the european mirror for the OpenNMS repository and switches from JRobin to RRDtool. The RRDs are stored in `$OPENNMS_HOME/share/rrd/snmp/fs/foreignid`.
+The following example configures, CentOS with Oracle JDK 7 instead of OpenJDK, uses the european mirror for the OpenNMS repository and switches from JRobin to RRDtool. The RRDs are stored in `$OPENNMS_HOME/share/rrd/snmp/fs/foreignid`.
+
+    # Use the centos-7.0 base image
+    config.vm.box = "centos-7.0"
+
+    # Use the centos-7.0 url for download
+    config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-7.0_chef-provisionerless.box"
 
     chef.json = {
-      :"ubuntu" => {
-        :"archive_url" => "http://de.archive.ubuntu.com/ubuntu"
-      },
       :"java" => {
         :"install_flavor" => "oracle",
         :"jdk_version" => "7",
@@ -71,11 +75,10 @@ The following example configures Oracle JDK 7 instead of OpenJDK, uses the europ
       :"opennms" => {
         :"release" => "stable", #stable, testing, unstable, snapshot, bleeding
         :"jpda" => "false",
-        :"home" => "/usr/share/opennms",
+        :"home" => "/opt/opennms",
         :"java_heap_space" => "1024",
         :"repository" => {
-          :"yum" => "yum.opennms.eu",
-          :"apt" => "debian.opennms.eu"
+          :"yum" => "yum.opennms.eu"
         },
         :"library" => {
           :"jrrd" => "/usr/lib/jni/libjrrd.so"

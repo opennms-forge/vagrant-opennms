@@ -53,6 +53,9 @@ It is possible to change some parameter through the Vagrantfile.
 The following example configures Oracle JDK 7 instead of OpenJDK, uses the european mirror for the OpenNMS repository and switches from JRobin to RRDtool. The RRDs are stored in `$OPENNMS_HOME/share/rrd/snmp/fs/foreignid`.
 
     chef.json = {
+      :"ubuntu" => {
+        :"archive_url" => "http://de.archive.ubuntu.com/ubuntu"
+      },
       :"java" => {
         :"install_flavor" => "oracle",
         :"jdk_version" => "7",
@@ -68,6 +71,7 @@ The following example configures Oracle JDK 7 instead of OpenJDK, uses the europ
       :"opennms" => {
         :"release" => "stable", #stable, testing, unstable, snapshot, bleeding
         :"jpda" => "false",
+        :"home" => "/usr/share/opennms",
         :"java_heap_space" => "1024",
         :"repository" => {
           :"yum" => "yum.opennms.eu",

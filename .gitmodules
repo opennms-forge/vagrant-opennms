@@ -22,3 +22,6 @@
 [submodule "cookbooks/ubuntu"]
 	path = cookbooks/ubuntu
 	url = https://github.com/opscode-cookbooks/ubuntu.git
+[submodule "cookbooks/timezone-ii"]
+	path = cookbooks/timezone-ii
+	url = https://github.com/L2G/timezone-ii.git

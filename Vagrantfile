@@ -53,6 +53,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
+      :"tz" => "Europe/Berlin",
+      :"timezone" => {
+        :"use_symlink" => true,
+      },
       :"java" => {
         :"install_flavor" => "openjdk",
         :"jdk_version" => "7",
@@ -86,6 +90,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       }
     }
     chef.cookbooks_path = "cookbooks"
+    chef.add_recipe "timezone-ii"
     chef.add_recipe "opennms-light"
   end
 end

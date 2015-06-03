@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 8001, host: 8001
 
   config.vm.provider :virtualbox do |vb|
-    vb.name = "OpenNMS"
+    vb.name = "Vagrant-OpenNMS"
     vb.customize ["modifyvm", :id, "--memory", "2048"]
     vb.customize ["modifyvm", :id, "--ioapic", "on"]
     # vb.gui = true
@@ -64,4 +64,3 @@ Vagrant.configure(2) do |config|
     chef.add_recipe "opennms-light"
   end
 end
-

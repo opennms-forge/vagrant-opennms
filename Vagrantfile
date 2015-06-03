@@ -61,6 +61,7 @@ Vagrant.configure(2) do |config|
       }
     }
     chef.cookbooks_path = "cookbooks"
+    chef.add_recipe "postgresql::server"
     chef.add_recipe "opennms-light"
   end
 end

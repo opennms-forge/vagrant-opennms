@@ -26,14 +26,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision :chef_solo do |chef|
     chef.json = {
       :"ubuntu" => {
-        :"archive_url" => "http://us.archive.ubuntu.com/ubuntu"
-      },
-      :"java" => {
-        :"install_flavor" => "oracle",
-        :"jdk_version" => "8",
-        :"oracle" => {
-          "accept_oracle_download_terms" => true
-        }
+        :"archive_url" => "http://de.archive.ubuntu.com/ubuntu"
       },
       :"postgresql" => {
         :"password" => {

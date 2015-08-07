@@ -34,7 +34,7 @@ Based on this machine a setup of OpenNMS will be executed through Chef recipes. 
 - openssl
 - java
 
-** What does the `recipe:opennms`**:
+**What does the `recipe:opennms`**:
 - Installing OpenJDK 7
 - Install a preconfigured opennms-datasources.xml with authentication
 - Install preconfigured opennms.conf

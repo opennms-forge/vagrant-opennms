@@ -1,8 +1,8 @@
 vagrant-opennms
 ===============
 Vagrant provides a good environment for testing, debugging OpenNMS. It can also provide you an environment to migrate your configuration to newer versions or test new functionalities from feature branches and future versions. The Vagrant box of OpenNMS requires the following:
-- VirtualBox 4.3+ http://www.virtualbox.org
-- Vagrant 1.7+ http://www.vagrantup.com
+- Latest VirtualBox http://www.virtualbox.org
+- Latest Vagrant http://www.vagrantup.com
 - Git http://www.git-scm.com
 - *NIX based operating system
 
@@ -35,13 +35,12 @@ Based on this machine a setup of OpenNMS will be executed through Chef recipes. 
 - java
 
 **What does the `recipe:opennms`**:
-- Installing OpenJDK 7
+- Installing Java environment
 - Install a preconfigured opennms-datasources.xml with authentication
 - Install preconfigured opennms.conf
 - Configure Java environment for OpenNMS with `runjava -s`
 - Install OpenNMS database schema and libraries with `install -dis`
 - Start opennms and add to runlevel for automatic start on boot
-- Install iptables which allows SSH, TCP/8980 and TCP/8001
 
 Customization through Vagrantfile
 ---------------------------------
@@ -51,13 +50,12 @@ It is possible to change some parameter through the Vagrantfile.
 - `opennms.jpda`: allows to open the Java Remote debugging port to the JVM. You can connect with your IDE for example debugging issues
 - `opennms.home` has to be set for Ubuntu to `/usr/share/opennms` and for CentOS to `/opt/opennms`
 
-The following example configures, CentOS with Oracle JDK 7 instead of OpenJDK, uses the european mirror for the OpenNMS repository and switches from JRobin to RRDtool. The RRDs are stored in `$OPENNMS_HOME/share/rrd/snmp/fs/foreignid`.
+The following example configures, CentOS with Oracle JDK instead of OpenJDK and uses the european mirror for the OpenNMS repository.
+It switches also from JRobin to RRDtool.
+The setting `storeByForeignSource` is enabled and RRD data is stored in `$OPENNMS_HOME/share/rrd/snmp/fs/foreignid` instead of the internal node id.
 
     # Use the centos-7.0 base image
     config.vm.box = "centos-7.0"
-
-    # Use the centos-7.0 url for download
-    config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-7.0_chef-provisionerless.box"
 
     chef.json = {
       :"java" => {

@@ -18,4 +18,4 @@
 	url = https://github.com/opennms-forge/chef-opennms-light.git
 [submodule "cookbooks/ubuntu"]
 	path = cookbooks/ubuntu
-	url = https://github.com/opscode-cookbooks/ubuntu.git
+	url = https://github.com/chef-cookbooks/ubuntu.git

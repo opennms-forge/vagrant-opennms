@@ -2,72 +2,53 @@
 # vi: set ft=ruby :
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
-VAGRANTFILE_API_VERSION = "2"
+Vagrant.configure(2) do |config|
 
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-
-  ###################
   ##  Base image
-  ##############
+  config.vm.box = "ubuntu/trusty64"
 
-  # Run with CentOS 7.0
-  config.vm.box = "centos-7.0"
-
-  # Run with Ubuntu 14.04
-  # config.vm.box = "ubuntu-14.04"
-
-  # Download URL CentOS 7.0
-  config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-7.0_chef-provisionerless.box"
-
-  # Download URL Ubuntu 14.04
-  # config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box"
-
-  ###################
-  ## Network configuration
-  ##############
-
+  ## OpenNMS WebUI and debug port
   config.vm.network "forwarded_port", guest: 8980, host: 8980
   config.vm.network "forwarded_port", guest: 8001, host: 8001
 
-  ###################
-  ## VM system settings
-  ##############
-
   config.vm.provider :virtualbox do |vb|
-    # Use VBoxManage to customize the VM. For example to change memory:
+    vb.name = "Vagrant-OpenNMS"
     vb.customize ["modifyvm", :id, "--memory", "2048"]
+    vb.customize ["modifyvm", :id, "--ioapic", "on"]
     # vb.gui = true
   end
-
-  ###################
-  ## Install Chef client
-  ##############
 
   config.vm.provision :shell do |shell|
     shell.inline = "which chef-client || wget -qO- https://www.opscode.com/chef/install.sh | bash"
   end
 
-  ###################
   ## Provisioning settings
-  ##############
-
   config.vm.provision :chef_solo do |chef|
     chef.json = {
-      :postgresql => {
-        :password => {
-          :postgres => "opennms_pg"
+      :"ubuntu" => {
+        :"archive_url" => "http://de.archive.ubuntu.com/ubuntu"
+      },
+      :"postgresql" => {
+        :"password" => {
+          :"postgres" => "opennms_pg"
         }
       },
-      :opennms => {
-        :release => "snapshot", #stable, testing, unstable, snapshot, bleeding
-        :jpda => false,
-        :repository => {
-	  :yum => "yum.opennms.eu",
-          :apt => "debian.opennms.eu"
-        }
+      :"opennms" => {
+        :"release" => "stable", #stable, testing, unstable, snapshot, bleeding
+        :"jpda" => "false",
+        :"home" => "/usr/share/opennms",
+        :"java_heap_space" => "1024",
+        :"library" => {
+          :"jrrd" => "/usr/lib/jni/libjrrd.so"
+        },
+        :"rrd" => {
+          :"strategyClass" => "org.opennms.netmgt.rrd.rrdtool.JniRrdStrategy",
+          :"interfaceJar" => "/usr/share/java/jrrd.jar"
+        },
+        :"storeByGroup" => "false",
+        :"storeByForeignSource" => "true"
       }
     }
-
     chef.cookbooks_path = "cookbooks"
     chef.add_recipe "opennms-light"
   end

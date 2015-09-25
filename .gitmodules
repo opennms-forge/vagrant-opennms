@@ -7,9 +7,6 @@
 [submodule "cookbooks/chef-sugar"]
 	path = cookbooks/chef-sugar
 	url = https://github.com/sethvargo/chef-sugar.git
-[submodule "cookbooks/java"]
-	path = cookbooks/java
-	url = https://github.com/agileorbit-cookbooks/java.git
 [submodule "cookbooks/openssl"]
 	path = cookbooks/openssl
 	url = https://github.com/opscode-cookbooks/openssl.git
@@ -19,3 +16,6 @@
 [submodule "cookbooks/opennms-light"]
 	path = cookbooks/opennms-light
 	url = https://github.com/opennms-forge/chef-opennms-light.git
+[submodule "cookbooks/ubuntu"]
+	path = cookbooks/ubuntu
+	url = https://github.com/opscode-cookbooks/ubuntu.git
